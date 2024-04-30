@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Str;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -15,6 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -113,8 +113,8 @@ class Category extends Model
 
                     Select::make('status')
                         ->options([
-                            "active" => "Active",
-                            "inactive" => "Inactive",
+                            'active' => 'Active',
+                            'inactive' => 'Inactive',
                         ])
                         ->required()
                         ->columnSpanFull(),
@@ -131,7 +131,7 @@ class Category extends Model
             ImageColumn::make('image'),
 
             TextColumn::make('parent.name')
-                ->label("Parent Category")
+                ->label('Parent Category')
                 ->default('-')
                 ->numeric()
                 ->sortable(),

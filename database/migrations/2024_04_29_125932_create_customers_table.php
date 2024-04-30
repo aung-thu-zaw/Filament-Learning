@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("country_id")->constrained();
-            $table->foreignId("state_id")->constrained();
-            $table->foreignId("city_id")->constrained();
-            $table->string("avatar")->nullable();
-            $table->string("name");
-            $table->string("email")->unique();
-            $table->string("phone")->unique();
-            $table->string("address");
-            $table->text("description")->nullable();
+            $table->foreignId('country_id')->constrained();
+            $table->foreignId('state_id')->constrained();
+            $table->foreignId('city_id')->constrained();
+            $table->string('avatar')->nullable();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
+            $table->string('address');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

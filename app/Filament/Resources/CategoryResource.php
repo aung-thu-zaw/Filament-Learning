@@ -11,11 +11,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Str;
 
 class CategoryResource extends Resource
 {
@@ -32,16 +28,16 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns(Category::getTableColumns())
-            ->defaultSort("id", "desc")
+            ->defaultSort('id', 'desc')
             ->actions([
                 EditAction::make(),
                 DeleteAction::make()->action(function ($data, $record) {
-                    if($record->products->count() > 0) {
+                    if ($record->products->count() > 0) {
                         Notification::make()
-                        ->danger()
-                        ->title("Category is in use.")
-                        ->body("Category is use by products.")
-                        ->send();
+                            ->danger()
+                            ->title('Category is in use.')
+                            ->body('Category is use by products.')
+                            ->send();
 
                         return;
                     }
@@ -49,9 +45,9 @@ class CategoryResource extends Resource
                     $record->delete();
 
                     Notification::make()
-                    ->success()
-                    ->title("Deleted")
-                    ->send();
+                        ->success()
+                        ->title('Deleted')
+                        ->send();
                 }),
             ])
             ->bulkActions([

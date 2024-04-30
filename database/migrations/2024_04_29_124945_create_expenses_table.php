@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("reference");
-            $table->foreignId("expense_category_id")->constrained()->cascadeOnDelete();
-            $table->decimal("amount",8,2)->default(0);
-            $table->text("description");
-            $table->timestamp("expense_date");
+            $table->unsignedBigInteger('reference');
+            $table->foreignId('expense_category_id')->constrained()->cascadeOnDelete();
+            $table->decimal('amount', 8, 2)->default(0);
+            $table->text('description');
+            $table->timestamp('expense_date');
             $table->timestamps();
         });
     }

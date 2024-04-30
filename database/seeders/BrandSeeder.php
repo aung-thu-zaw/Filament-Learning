@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Brand;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class BrandSeeder extends Seeder
@@ -14,127 +13,127 @@ class BrandSeeder extends Seeder
     public function run(): void
     {
         Brand::factory()->create([
-            'name' => "Samsung",
+            'name' => 'Samsung',
             'logo' => 'https://freepngimg.com/thumb/logo/73159-samsung-s7-s6-logo-electronics-galaxy-thumb.png',
         ]);
 
         Brand::factory()->create([
-            'name' => "Apple",
+            'name' => 'Apple',
             'logo' => 'https://freepngimg.com/thumb/apple/58851-logo-watch-apple-free-frame-thumb.png',
         ]);
 
         Brand::factory()->create([
-            'name' => "Adidas",
+            'name' => 'Adidas',
             'logo' => 'https://freepngimg.com/thumb/adidas/58264-originals-adidas-smith-stan-logo-store-thumb.png',
         ]);
 
         Brand::factory()->create([
-            'name' => "Nike",
+            'name' => 'Nike',
             'logo' => 'https://www.logo.wine/a/logo/Nike%2C_Inc./Nike%2C_Inc.-Nike-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Sony",
+            'name' => 'Sony',
             'logo' => 'https://www.logo.wine/a/logo/Sony/Sony-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Microsoft",
+            'name' => 'Microsoft',
             'logo' => 'https://www.logo.wine/a/logo/Microsoft/Microsoft-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Coca-Cola",
+            'name' => 'Coca-Cola',
             'logo' => 'https://download.logo.wine/logo/Coca-Cola/Coca-Cola-Logo.wine.png',
         ]);
 
         Brand::factory()->create([
-            'name' => "Pepsi",
+            'name' => 'Pepsi',
             'logo' => 'https://www.logo.wine/a/logo/Pepsi/Pepsi-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "G-Shock",
+            'name' => 'G-Shock',
             'logo' => 'https://www.logo.wine/a/logo/G-Shock/G-Shock-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Gucci",
+            'name' => 'Gucci',
             'logo' => 'https://www.logo.wine/a/logo/Gucci/Gucci-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Chanel",
+            'name' => 'Chanel',
             'logo' => 'https://www.logo.wine/a/logo/Chanel/Chanel-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Louis Vuitton",
+            'name' => 'Louis Vuitton',
             'logo' => 'https://www.logo.wine/a/logo/Louis_Vuitton/Louis_Vuitton-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Dell",
+            'name' => 'Dell',
             'logo' => 'https://www.logo.wine/a/logo/Dell/Dell-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "HP",
+            'name' => 'HP',
             'logo' => 'https://www.logo.wine/a/logo/Hewlett-Packard/Hewlett-Packard-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Lenovo",
+            'name' => 'Lenovo',
             'logo' => 'https://www.logo.wine/a/logo/Lenovo_Vibe_K4_Note/Lenovo_Vibe_K4_Note-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Canon",
+            'name' => 'Canon',
             'logo' => 'https://www.logo.wine/a/logo/Canon_Inc./Canon_Inc.-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Panasonic",
+            'name' => 'Panasonic',
             'logo' => 'https://www.logo.wine/a/logo/Panasonic/Panasonic-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "LG",
+            'name' => 'LG',
             'logo' => 'https://www.logo.wine/a/logo/LG_Electronics/LG_Electronics-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "ASUS",
+            'name' => 'ASUS',
             'logo' => 'https://www.logo.wine/a/logo/Asus/Asus-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Intel",
+            'name' => 'Intel',
             'logo' => 'https://www.logo.wine/a/logo/Intel/Intel-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "AMD",
+            'name' => 'AMD',
             'logo' => 'https://www.logo.wine/a/logo/Ryzen/Ryzen-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Nestlé",
+            'name' => 'Nestlé',
             'logo' => 'https://www.logo.wine/a/logo/Nestl%C3%A9/Nestl%C3%A9-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Calvin Klein",
+            'name' => 'Calvin Klein',
             'logo' => 'https://www.logo.wine/a/logo/Calvin_Klein_(company)/Calvin_Klein_(company)-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Oral-B",
+            'name' => 'Oral-B',
             'logo' => 'https://www.logo.wine/a/logo/Oral-B/Oral-B-Logo.wine.svg',
         ]);
 
         Brand::factory()->create([
-            'name' => "Johnson & Johnson",
+            'name' => 'Johnson & Johnson',
             'logo' => 'https://www.logo.wine/a/logo/Johnson_%26_Johnson/Johnson_%26_Johnson-Logo.wine.svg',
         ]);
 

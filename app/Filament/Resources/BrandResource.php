@@ -10,8 +10,6 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class BrandResource extends Resource
@@ -29,7 +27,7 @@ class BrandResource extends Resource
     {
         return $table
             ->columns(Brand::getTableColumns())
-            ->defaultSort("id", "desc")
+            ->defaultSort('id', 'desc')
             ->actions([
                 EditAction::make(),
                 DeleteAction::make(),
@@ -47,7 +45,7 @@ class BrandResource extends Resource
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [

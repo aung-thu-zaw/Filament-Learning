@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("country_id")->constrained()->cascadeOnDelete();
-            $table->string("name")->unique();
-            $table->string("iso_code")->unique();
+            $table->foreignId('country_id')->constrained()->cascadeOnDelete();
+            $table->string('name')->unique();
+            $table->string('iso_code')->unique();
             $table->timestamps();
         });
     }

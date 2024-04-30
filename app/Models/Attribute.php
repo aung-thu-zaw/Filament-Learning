@@ -12,8 +12,8 @@ class Attribute extends Model
     use HasFactory;
 
     /**
-    * @return \Illuminate\Database\Eloquent\Casts\Attribute<Attribute, never>
-    */
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute<Attribute, never>
+     */
     protected function name(): CastsAttribute
     {
         return CastsAttribute::make(

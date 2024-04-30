@@ -11,7 +11,6 @@ class AttributeOption extends Model
 {
     use HasFactory;
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Casts\Attribute<AttributeOption, never>
      */

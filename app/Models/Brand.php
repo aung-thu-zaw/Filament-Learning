@@ -6,16 +6,15 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
 use Filament\Forms\Set;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use Illuminate\Support\Str;
 
 class Brand extends Model
 {
@@ -71,8 +70,8 @@ class Brand extends Model
 
                     Select::make('status')
                         ->options([
-                            "active" => "Active",
-                            "inactive" => "Inactive",
+                            'active' => 'Active',
+                            'inactive' => 'Inactive',
                         ])
                         ->required()
                         ->columnSpanFull(),
@@ -86,32 +85,32 @@ class Brand extends Model
     public static function getTableColumns(): array
     {
         return [
-             TextColumn::make('name')
-                  ->label("Brand")
-                  ->sortable()
-                  ->searchable(),
+            TextColumn::make('name')
+                ->label('Brand')
+                ->sortable()
+                ->searchable(),
 
-             ImageColumn::make('logo')
-                  ->square(),
+            ImageColumn::make('logo')
+                ->square(),
 
-             TextColumn::make('status')
-                  ->badge()
-                  ->color(fn (string $state): string => match ($state) {
-                      'active' => 'success',
-                      'inactive' => 'warning',
-                      default => 'primary',
-                  })
-                  ->sortable(),
+            TextColumn::make('status')
+                ->badge()
+                ->color(fn (string $state): string => match ($state) {
+                    'active' => 'success',
+                    'inactive' => 'warning',
+                    default => 'primary',
+                })
+                ->sortable(),
 
-             TextColumn::make('created_at')
-                  ->dateTime()
-                  ->sortable()
-                  ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('created_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
 
-             TextColumn::make('updated_at')
-                  ->dateTime()
-                  ->sortable()
-                  ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('updated_at')
+                ->dateTime()
+                ->sortable()
+                ->toggleable(isToggledHiddenByDefault: true),
         ];
     }
 }

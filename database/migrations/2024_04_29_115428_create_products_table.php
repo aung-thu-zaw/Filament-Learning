@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class () extends Migration {
+return new class() extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -22,7 +23,7 @@ return new class () extends Migration {
             $table->text('description');
             $table->string('code')->nullable();
             $table->decimal('price', 8, 2)->nullable();
-            $table->enum('discount_type', ["percentage", "fixed"])->nullable();
+            $table->enum('discount_type', ['percentage', 'fixed'])->nullable();
             $table->decimal('discount_price', 8, 2)->nullable();
             $table->date('discount_start_date')->nullable();
             $table->date('discount_end_date')->nullable();
@@ -31,8 +32,8 @@ return new class () extends Migration {
             $table->string('sku')->nullable();
             $table->string('image');
             $table->enum('status', ['draft', 'published'])->default('draft');
-            $table->timestamp("manufactured_date")->nullable();
-            $table->timestamp("expired_date")->nullable();
+            $table->timestamp('manufactured_date')->nullable();
+            $table->timestamp('expired_date')->nullable();
             $table->timestamps();
         });
     }
