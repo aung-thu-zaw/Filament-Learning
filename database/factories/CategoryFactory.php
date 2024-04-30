@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,17 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+
+        // $admins = User::where("role", "admin")->pluck("id")->toArray();
+
         return [
-            //
+            'parent_id' => null,
+            'created_by' => 1,
+            'name' => fake()->unique()->name(),
+            'image' => fake()->imageUrl(),
+            'description' => fake()->sentence(),
+            "status" => fake()->randomElement(["active","inactive"]),
+            'created_at' => fake()->dateTimeBetween('-4 months', now()),
         ];
     }
 }

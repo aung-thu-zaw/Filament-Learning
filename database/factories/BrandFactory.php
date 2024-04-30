@@ -19,7 +19,8 @@ class BrandFactory extends Factory
         return [
             "name" => fake()->unique()->name(),
             "logo" => fake()->imageUrl(),
-            "status" => fake()->boolean(),
+            "status" => fake()->randomElement(["active","inactive"]),
+            'created_at' => fake()->dateTimeBetween('-4 months', now()),
         ];
     }
 }
