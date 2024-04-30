@@ -26,7 +26,7 @@ class CategoryFactory extends Factory
             'name' => fake()->unique()->name(),
             'image' => fake()->imageUrl(),
             'description' => fake()->sentence(),
-            'status' => fake()->randomElement(['active', 'inactive']),
+            'status' => fake()->boolean(),
             'created_at' => fake()->dateTimeBetween('-4 months', now()),
         ];
     }

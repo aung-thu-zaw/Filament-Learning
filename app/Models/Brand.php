@@ -6,6 +6,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Set;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -68,13 +69,8 @@ class Brand extends Model
                         ->required()
                         ->columnSpanFull(),
 
-                    Select::make('status')
-                        ->options([
-                            'active' => 'Active',
-                            'inactive' => 'Inactive',
-                        ])
-                        ->required()
-                        ->columnSpanFull(),
+                    Toggle::make('status')
+                        ->required(),
                 ]),
         ];
     }
@@ -94,13 +90,13 @@ class Brand extends Model
                 ->square(),
 
             TextColumn::make('status')
+                ->sortable()
+                ->formatStateUsing(fn (string $state): string => $state ? "Active" : "Inactive")
                 ->badge()
-                ->color(fn (string $state): string => match ($state) {
-                    'active' => 'success',
-                    'inactive' => 'warning',
-                    default => 'primary',
-                })
-                ->sortable(),
+                ->color(fn (bool $state): string => match ($state) {
+                    true => 'success',
+                    false => 'warning',
+                }),
 
             TextColumn::make('created_at')
                 ->dateTime()
