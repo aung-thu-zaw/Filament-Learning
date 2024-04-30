@@ -16,8 +16,20 @@ class CouponFactory extends Factory
      */
     public function definition(): array
     {
+        $randomDays = fake()->numberBetween(3, 30);
+        $randomMonths = fake()->numberBetween(1, 4);
+
         return [
-            //
+            'code' => fake()->unique()->word(),
+            'description' => fake()->sentence(),
+            'type' => fake()->randomElement(['percentage', 'fixed']),
+            'value' => fake()->numberBetween(10, 500),
+            'min_spend' => fake()->numberBetween(500, 1000),
+            'usage_limit' => fake()->numberBetween(10, 100),
+            'start_date' => fake()->dateTimeBetween(now(), "+ $randomDays days")->format('Y-m-d'),
+            'end_date' => fake()->dateTimeBetween(now(), "+ $randomMonths months")->format('Y-m-d'),
+            'status' => fake()->boolean(),
+            'created_at' => fake()->dateTimeBetween('-4 months', now()),
         ];
     }
 }

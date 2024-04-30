@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CategoryResource\Pages;
+use App\Filament\Resources\CategoryResource\Pages\ListCategories;
 use App\Models\Category;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;
@@ -18,6 +19,8 @@ class CategoryResource extends Resource
     protected static ?string $model = Category::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+
+    protected static ?string $navigationGroup = 'Inventory';
 
     public static function form(Form $form): Form
     {
@@ -67,7 +70,7 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
+            'index' => ListCategories::route('/'),
         ];
     }
 }

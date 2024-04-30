@@ -17,7 +17,11 @@ class WarrantyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            "name" => fake()->unique()->name(),
+            "duration" => fake()->numberBetween(1, 10),
+            "periods" => fake()->randomElement(['week', 'month', 'year']),
+            "description" => fake()->paragraph(),
+            "status" => fake()->boolean(),
         ];
     }
 }

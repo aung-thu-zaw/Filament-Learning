@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BrandResource\Pages;
+use App\Filament\Resources\BrandResource\Pages\ListBrands;
 use App\Models\Brand;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -16,7 +17,9 @@ class BrandResource extends Resource
 {
     protected static ?string $model = Brand::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-check-badge';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+
+    protected static ?string $navigationGroup = 'Inventory';
 
     public static function form(Form $form): Form
     {
@@ -49,7 +52,7 @@ class BrandResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBrands::route('/'),
+            'index' => ListBrands::route('/'),
         ];
     }
 }
