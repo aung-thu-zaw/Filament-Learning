@@ -93,14 +93,9 @@ class Category extends Model
                             $set('slug', Str::slug($state));
                         }),
 
-                    TextInput::make('slug')
-                        ->unique(ignoreRecord: true)
-                        ->required(),
+                    TextInput::make('slug')->unique(ignoreRecord: true)->required(),
 
-                    Textarea::make('description')
-                        ->rows(5)
-                        ->nullable()
-                        ->columnSpanFull(),
+                    Textarea::make('description')->rows(5)->nullable()->columnSpanFull(),
 
                     FileUpload::make('image')
                         ->label('Category Image')
@@ -112,8 +107,7 @@ class Category extends Model
                         ->nullable()
                         ->columnSpanFull(),
 
-                    Toggle::make('status')
-                        ->required(),
+                    Toggle::make('status')->required(),
                 ]),
         ];
     }
@@ -126,40 +120,29 @@ class Category extends Model
         return [
             ImageColumn::make('image'),
 
-            TextColumn::make('parent.name')
-                ->label('Parent Category')
-                ->default('-')
-                ->numeric()
-                ->sortable(),
+            TextColumn::make('parent.name')->label('Parent Category')->default('-')->numeric()->sortable(),
 
             TextColumn::make('name')
                 ->description(fn (Category $record): string => $record->description ? Str::limit($record->description, 60) : '')
                 ->sortable()
                 ->searchable(),
 
-            TextColumn::make('createdBy.name')
-                ->numeric()
-                ->sortable()
-                ->searchable(),
+            TextColumn::make('createdBy.name')->numeric()->sortable()->searchable(),
 
             TextColumn::make('status')
                 ->sortable()
-                ->formatStateUsing(fn (string $state): string => $state ? "Active" : "Inactive")
+                ->formatStateUsing(fn (string $state): string => $state ? 'Active' : 'Inactive')
                 ->badge()
-                ->color(fn (bool $state): string => match ($state) {
-                    true => 'success',
-                    false => 'warning',
-                }),
+                ->color(
+                    fn (bool $state): string => match ($state) {
+                        true => 'success',
+                        false => 'warning',
+                    },
+                ),
 
-            TextColumn::make('created_at')
-                ->dateTime()
-                ->sortable()
-                ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
 
-            TextColumn::make('updated_at')
-                ->dateTime()
-                ->sortable()
-                ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
         ];
     }
 }

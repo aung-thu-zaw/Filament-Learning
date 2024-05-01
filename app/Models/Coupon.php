@@ -47,7 +47,7 @@ class Coupon extends Model
                         ->required(),
 
                     TextInput::make('value')
-                        ->label("Discount")
+                        ->label('Discount')
                         ->numeric()
                         ->maxValue(fn (Get $get): int => $get('type') === 'percentage' ? 100 : 99999999999)
                         ->prefix(function (Get $get) {
@@ -59,7 +59,7 @@ class Coupon extends Model
                         })
                         ->required(),
 
-                    TextInput::make('min_spend')->numeric()->prefix("$")->default(0)->nullable(),
+                    TextInput::make('min_spend')->numeric()->prefix('$')->default(0)->nullable(),
 
                     DatePicker::make('start_date')->native(false)->format('d-m-Y'),
 
@@ -99,7 +99,7 @@ class Coupon extends Model
             TextColumn::make('value')
                 ->label('Discount')
                 ->formatStateUsing(function (string $state, Coupon $record): string {
-                    return $record->type === "percentage" ? "%".$state : "$".number_format(floatval($state), 2);
+                    return $record->type === 'percentage' ? '%'.$state : '$'.number_format(floatval($state), 2);
                 })
                 ->sortable(),
 
@@ -120,7 +120,7 @@ class Coupon extends Model
 
             TextColumn::make('usage_limit')->numeric()->default('-')->sortable(),
 
-            TextColumn::make('coupon.users')->label("Total Used")->counts('users')->numeric()->default(0)->sortable(),
+            TextColumn::make('coupon.users')->label('Total Used')->counts('users')->numeric()->default(0)->sortable(),
 
             TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
 

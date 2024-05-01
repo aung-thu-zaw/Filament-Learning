@@ -55,6 +55,6 @@ class UnitSeeder extends Seeder
             ],
         ]);
 
-        $units->each(fn($unit) => Unit::factory()->create($unit));
+        $units->each(fn ($unit) => Unit::factory()->create($unit));
     }
 }

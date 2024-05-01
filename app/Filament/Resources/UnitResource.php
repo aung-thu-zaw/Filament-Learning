@@ -2,21 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UnitResource\Pages;
 use App\Filament\Resources\UnitResource\Pages\ListUnits;
-use App\Filament\Resources\UnitResource\RelationManagers;
 use App\Models\Unit;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UnitResource extends Resource
 {
@@ -35,7 +29,7 @@ class UnitResource extends Resource
     {
         return $table
             ->columns(Unit::getTableColumns())
-            ->defaultSort("id", "desc")
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
             ])
@@ -45,7 +39,7 @@ class UnitResource extends Resource
             ])
             ->bulkActions([
                 BulkActionGroup::make([
-                   DeleteBulkAction::make(),
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

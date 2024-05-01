@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             UnitSeeder::class,
             WarrantySeeder::class,
-            CouponSeeder::class
+            CouponSeeder::class,
         ]);
     }
 }

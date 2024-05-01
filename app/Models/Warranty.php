@@ -47,9 +47,9 @@ class Warranty extends Model
 
                     Select::make('periods')
                         ->options([
-                            "week" => "Week",
-                            "month" => "Month",
-                            "year" => "Year",
+                            'week' => 'Week',
+                            'month' => 'Month',
+                            'year' => 'Year',
                         ])
                         ->required(),
 
@@ -81,7 +81,7 @@ class Warranty extends Model
 
             TextColumn::make('status')
                 ->sortable()
-                ->formatStateUsing(fn (string $state): string => $state ? "Active" : "Inactive")
+                ->formatStateUsing(fn (string $state): string => $state ? 'Active' : 'Inactive')
                 ->badge()
                 ->color(fn (bool $state): string => match ($state) {
                     true => 'success',

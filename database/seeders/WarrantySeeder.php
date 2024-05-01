@@ -81,7 +81,7 @@ class WarrantySeeder extends Seeder
                 'duration' => 2,
                 'periods' => 'year',
                 'description' => 'Guaranteed extended battery life for two years.',
-            ]
+            ],
         ]);
 
         $warranties->each(fn ($warranty) => Warranty::factory()->create($warranty));

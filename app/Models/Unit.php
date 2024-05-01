@@ -32,9 +32,9 @@ class Unit extends Model
                 ->columns(2)
                 ->schema([
                     TextInput::make('name')
-                       ->label('Unit Name')
-                       ->unique(ignoreRecord: true)
-                       ->required(),
+                        ->label('Unit Name')
+                        ->unique(ignoreRecord: true)
+                        ->required(),
 
                     TextInput::make('short_name')
                         ->label('Unit Short Form')
@@ -52,32 +52,32 @@ class Unit extends Model
      */
     public static function getTableColumns(): array
     {
-        return[
-           TextColumn::make('name')
-                ->label("Unit")
+        return [
+            TextColumn::make('name')
+                ->label('Unit')
                 ->sortable()
                 ->searchable(),
 
-           TextColumn::make('short_name')
-                ->label("Short Form")
+            TextColumn::make('short_name')
+                ->label('Short Form')
                 ->sortable()
                 ->searchable(),
 
-           TextColumn::make('status')
-            ->sortable()
-            ->formatStateUsing(fn (string $state): string => $state ? "Active" : "Inactive")
-            ->badge()
-            ->color(fn (bool $state): string => match ($state) {
-                true => 'success',
-                false => 'warning',
-            }),
+            TextColumn::make('status')
+                ->sortable()
+                ->formatStateUsing(fn (string $state): string => $state ? 'Active' : 'Inactive')
+                ->badge()
+                ->color(fn (bool $state): string => match ($state) {
+                    true => 'success',
+                    false => 'warning',
+                }),
 
-           TextColumn::make('created_at')
+            TextColumn::make('created_at')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),
 
-           TextColumn::make('updated_at')
+            TextColumn::make('updated_at')
                 ->dateTime()
                 ->sortable()
                 ->toggleable(isToggledHiddenByDefault: true),

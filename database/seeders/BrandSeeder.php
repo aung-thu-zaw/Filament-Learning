@@ -144,6 +144,6 @@ class BrandSeeder extends Seeder
             ],
         ]);
 
-        $brands->each(fn($brand) => Brand::factory()->create($brand));
+        $brands->each(fn ($brand) => Brand::factory()->create($brand));
     }
 }

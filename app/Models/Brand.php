@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Set;
@@ -69,8 +68,7 @@ class Brand extends Model
                         ->required()
                         ->columnSpanFull(),
 
-                    Toggle::make('status')
-                        ->required(),
+                    Toggle::make('status')->required(),
                 ]),
         ];
     }
@@ -81,32 +79,23 @@ class Brand extends Model
     public static function getTableColumns(): array
     {
         return [
-            TextColumn::make('name')
-                ->label('Brand')
-                ->sortable()
-                ->searchable(),
+            TextColumn::make('name')->label('Brand')->sortable()->searchable(),
 
-            ImageColumn::make('logo')
-                ->square(),
+            ImageColumn::make('logo')->square(),
 
             TextColumn::make('status')
                 ->sortable()
-                ->formatStateUsing(fn (string $state): string => $state ? "Active" : "Inactive")
+                ->formatStateUsing(fn (string $state): string => $state ? 'Active' : 'Inactive')
                 ->badge()
                 ->color(fn (bool $state): string => match ($state) {
                     true => 'success',
                     false => 'warning',
-                }),
+                },
+                ),
 
-            TextColumn::make('created_at')
-                ->dateTime()
-                ->sortable()
-                ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
 
-            TextColumn::make('updated_at')
-                ->dateTime()
-                ->sortable()
-                ->toggleable(isToggledHiddenByDefault: true),
+            TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
         ];
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\BrandResource\Pages;
 use App\Filament\Resources\BrandResource\Pages\ListBrands;
 use App\Models\Brand;
 use Filament\Forms\Form;

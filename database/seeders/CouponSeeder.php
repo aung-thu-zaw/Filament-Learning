@@ -133,7 +133,6 @@ class CouponSeeder extends Seeder
             ],
         ]);
 
-
         $coupons->each(fn ($coupon) => Coupon::factory()->create($coupon));
     }
 }
