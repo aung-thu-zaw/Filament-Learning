@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ExpenseCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,15 @@ class ExpenseFactory extends Factory
      */
     public function definition(): array
     {
+
+        $categories = ExpenseCategory::pluck("id")->toArray();
+
         return [
-            //
+            "reference" => uniqid(),
+            "expense_category_id" => fake()->randomElement($categories),
+            "amount" => fake()->numberBetween(20, 99999),
+            "description" => fake()->paragraph(),
+            "expense_date" => fake()->dateTimeBetween('-1 year', '+ 2 weeks'),
         ];
     }
 }
