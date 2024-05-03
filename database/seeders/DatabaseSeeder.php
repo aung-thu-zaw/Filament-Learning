@@ -20,7 +20,11 @@ class DatabaseSeeder extends Seeder
             WarrantySeeder::class,
             CouponSeeder::class,
             ExpenseCategorySeeder::class,
-            ExpenseSeeder::class
+            ExpenseSeeder::class,
+            CountrySeeder::class,
+            ProvinceSeeder::class,
+            CitySeeder::class,
+            CustomerSeeder::class,
         ]);
     }
 }

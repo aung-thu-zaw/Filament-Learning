@@ -14,7 +14,7 @@ return new class() extends Migration
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('country_id')->constrained();
-            $table->foreignId('state_id')->constrained();
+            $table->foreignId('province_id')->constrained();
             $table->foreignId('city_id')->constrained();
             $table->string('avatar')->nullable();
             $table->string('name');
