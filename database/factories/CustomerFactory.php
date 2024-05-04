@@ -32,12 +32,12 @@ class CustomerFactory extends Factory
                 $city = City::where('province_id', $attributes['province_id'])->inRandomOrder()->first();
                 return $city ? $city->id : 1;
             },
-            'avatar' => $this->faker->imageUrl(),
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->email(),
-            'phone' => $this->faker->unique()->phoneNumber(),
-            'address' => $this->faker->address(),
-            'description' => $this->faker->paragraph(),
+            'avatar' => fake()->imageUrl(),
+            'name' => fake()->name(),
+            'email' => fake()->unique()->email(),
+            'phone' => fake()->unique()->phoneNumber(),
+            'address' => fake()->address(),
+            'description' => fake()->paragraph(),
         ];
     }
 }
