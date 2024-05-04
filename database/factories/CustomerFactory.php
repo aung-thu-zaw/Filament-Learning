@@ -20,13 +20,17 @@ class CustomerFactory extends Factory
      */
     public function definition(): array
     {
+        $countries = Country::pluck("id")->toArray();
+
         return [
-            'country_id' => Country::factory(),
+            'country_id' => fake()->randomElement($countries),
             'province_id' => function (array $attributes) {
-                return Province::where('country_id', $attributes['country_id'])->inRandomOrder()->first()->id;
+                $province = Province::where('country_id', $attributes['country_id'])->inRandomOrder()->first();
+                return $province ? $province->id : 1;
             },
             'city_id' => function (array $attributes) {
-                return City::where('province_id', $attributes['province_id'])->inRandomOrder()->first()->id;
+                $city = City::where('province_id', $attributes['province_id'])->inRandomOrder()->first();
+                return $city ? $city->id : 1;
             },
             'avatar' => $this->faker->imageUrl(),
             'name' => $this->faker->name(),

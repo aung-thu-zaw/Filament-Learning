@@ -18,8 +18,6 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
 
-        // $admins = User::where("role", "admin")->pluck("id")->toArray();
-
         return [
             'parent_id' => null,
             'created_by' => 1,
