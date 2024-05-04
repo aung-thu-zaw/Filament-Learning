@@ -92,7 +92,7 @@ class Customer extends Model
                             return $get("country_id") && $get('province_id') ? false : true;
                         }),
 
-                    Textarea::make('description')->rows(5)->nullable()->columnSpanFull(),
+                    Textarea::make('description')->rows(5)->helperText("Maximum 600 Characters")->nullable()->columnSpanFull(),
 
                     FileUpload::make('avatar')
                         ->image()
