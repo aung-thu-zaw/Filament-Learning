@@ -81,6 +81,20 @@ class Product extends Model
         return $this->hasMany(Sku::class);
     }
 
+    public function inactive(): void
+    {
+        $this->status = "inactive";
+
+        $this->save();
+    }
+
+    public function published(): void
+    {
+        $this->status = "published";
+
+        $this->save();
+    }
+
     /**
      * @return array<mixed>
      */
@@ -270,10 +284,28 @@ class Product extends Model
 
             TextColumn::make('stock_alert')->numeric()->sortable(),
 
-            SelectColumn::make('status')->options([
-                "inactive" => "Inactive",
-                "published" => "Published",
-            ]),
+            TextColumn::make('status')
+            ->sortable()
+            ->badge()
+            ->icon(static function (string $state): string {
+                if ($state === 'published') {
+                    return 'heroicon-o-check-circle';
+                } elseif($state === "inactive") {
+                    return 'heroicon-o-x-circle';
+                } elseif($state === "draft") {
+                    return 'heroicon-o-pencil';
+                }
+
+                return 'heroicon-o-pencil';
+            })
+            ->color(
+                fn (string $state): string => match ($state) {
+                    "inactive" => 'danger',
+                    'published' => 'success',
+                    'draft' => 'warning',
+                    default => 'primary'
+                },
+            ),
 
             TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
 
