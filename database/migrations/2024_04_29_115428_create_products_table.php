@@ -22,7 +22,7 @@ return new class () extends Migration {
             $table->text('description');
             $table->string('code')->nullable();
             $table->decimal('price', 8, 2)->nullable();
-            $table->enum('discount_type', ['percentage', 'fixed'])->nullable();
+            $table->enum('discount_type', ['percentage', 'fixed'])->default(null)->nullable();
             $table->decimal('discount_price', 8, 2)->nullable();
             $table->date('discount_start_date')->nullable();
             $table->date('discount_end_date')->nullable();

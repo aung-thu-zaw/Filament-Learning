@@ -22,6 +22,8 @@ use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ForceDeleteAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -43,8 +45,20 @@ class ProductResource extends Resource
     {
         return $table
             ->columns(Product::getTableColumns())
+            ->filtersTriggerAction(fn ($action) => $action->button()->label("Filters"))
             ->filters([
-                //
+                SelectFilter::make("unit")
+                    ->label("Units")
+                    ->relationship("unit", "name")
+                    ->multiple()
+                    ->searchable()
+                    ->preload(),
+
+                SelectFilter::make("discount_type")->label("Discount")->options([
+                    null => "No Discount",
+                    "percentage" => "Percentage",
+                    "fixed" => "Fixed"
+                ])
             ])
             ->defaultSort("id", "desc")
             ->actions([
