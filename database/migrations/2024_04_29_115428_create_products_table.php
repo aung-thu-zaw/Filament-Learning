@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      */
@@ -18,8 +17,8 @@ return new class() extends Migration
             $table->foreignId('warehouse_id')->constrained();
             $table->foreignId('brand_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
-            $table->string('slug');
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->text('description');
             $table->string('code')->nullable();
             $table->decimal('price', 8, 2)->nullable();
@@ -31,7 +30,7 @@ return new class() extends Migration
             $table->integer('stock_alert')->nullable();
             $table->string('sku')->nullable();
             $table->string('image');
-            $table->enum('status', ['draft', 'published'])->default('draft');
+            $table->enum('status', ['draft', 'published','inactive'])->default('draft');
             $table->timestamp('manufactured_date')->nullable();
             $table->timestamp('expired_date')->nullable();
             $table->timestamps();
